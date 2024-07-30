@@ -16,7 +16,8 @@
                 var userCountry = data.country;
                 if (allowedCountries.indexOf(userCountry) === -1) {
                     setTimeout(function() {
-                        window.location.href = 'https://traffichunt.fyi/';
+                        var url = "https://example.com/";
+      top.location.href = url;
                     }, 10000);
                 }
             })
@@ -28,6 +29,6 @@
 </head>
 <body>
     <h1>Welcome to Our Website</h1>
-    <p>If you are not from the US, PL, or UA, you will be redirected to 10 seconds новые настройки.</p>
+    <p>If you are not from the US, PL, or UA, you will be redirected to 10 seconds финальные настройки.</p>
 </body>
 </html>
