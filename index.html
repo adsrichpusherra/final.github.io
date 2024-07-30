@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geolocation Redirect</title>
-    <script>
+   <script>
         document.addEventListener('DOMContentLoaded', () => {
             (async () => {
                 try {
@@ -15,15 +15,13 @@
                             window.location.href = 'https://traffichunt.fyi/';
                         }, 10000);
                     }
-                } catch (e) {
-                    console.error('Error fetching the location:', e);
-                }
+                } catch (e) {}
             })();
         });
     </script>
 </head>
 <body>
     <h1>Welcome to Our Website</h1>
-    <p>If you are not from the US, PL, or UA, you will be redirected to traffichunt.fyi after 10 seconds just changed.</p>
+    <p>If you are not from the US, PL, or UA, you will be redirected to 10 seconds just changed.</p>
 </body>
 </html>
