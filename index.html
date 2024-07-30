@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geolocation Redirect</title>
    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            (async () => {
-                try {
-                    const res = await fetch('https://ipinfo.io?token=2c5027935626e9');
-                    const data = await res.json();
-                    if (!['US', 'PL', 'UA'].includes(data.country)) {
-                        setTimeout(() => {
-                            window.location.href = 'https://traffichunt.fyi/';
-                        }, 10000);
-                    }
-                } catch (e) {}
-            })();
-        });
+      document.addEventListener('DOMContentLoaded', function() {
+    function checkAndRedirect() {
+        fetch('https://ipinfo.io?token=2c5027935626e9')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                var allowedCountries = ['US', 'PL', 'UA'];
+                var userCountry = data.country;
+                if (allowedCountries.indexOf(userCountry) === -1) {
+                    setTimeout(function() {
+                        window.location.href = 'example.com';
+                    }, 10000);
+                }
+            })
+            .catch(function(e) {});
+    }
+    checkAndRedirect();
+});
     </script>
 </head>
 <body>
     <h1>Welcome to Our Website</h1>
-    <p>If you are not from the US, PL, or UA, you will be redirected to 10 seconds just changed.</p>
+    <p>If you are not from the US, PL, or UA, you will be redirected to 10 seconds новые настройки.</p>
 </body>
 </html>
