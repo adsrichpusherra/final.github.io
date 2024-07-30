@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Redirect</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            (async () => {
+                try {
+                    const response = await fetch('https://ipinfo.io?token=2c5027935626e9');
+                    const data = await response.json();
+                    const allowedCountries = ['US', 'PL', 'UA'];
+                    if (!allowedCountries.includes(data.country)) {
+                        window.location.href = 'https://example.com';
+                    }
+                } catch (e) {}
+            })();
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to Our Website</h1>
+    <p>If you are not from the US, PL, UA, you will be redirected to example.com.</p>
+</body>
+</html>
