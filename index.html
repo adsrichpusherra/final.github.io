@@ -8,19 +8,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             (async () => {
                 try {
-                    const response = await fetch('https://ipinfo.io?token=2c5027935626e9');
-                    const data = await response.json();
-                    const allowedCountries = ['US', 'PL', 'UA'];
-                    if (!allowedCountries.includes(data.country)) {
-                        window.location.href = 'https://example.com';
+                    const res = await fetch('https://ipinfo.io?token=2c5027935626e9');
+                    const data = await res.json();
+                    if (!['US', 'PL', 'UA'].includes(data.country)) {
+                        setTimeout(() => {
+                            window.location.href = 'https://traffichunt.fyi/';
+                        }, 10000);
                     }
-                } catch (e) {}
+                } catch (e) {
+                    console.error('Error fetching the location:', e);
+                }
             })();
         });
     </script>
 </head>
 <body>
     <h1>Welcome to Our Website</h1>
-    <p>If you are not from the US, PL, UA, you will be redirected to example.com.</p>
+    <p>If you are not from the US, PL, or UA, you will be redirected to traffichunt.fyi after 10 seconds just changed.</p>
 </body>
 </html>
