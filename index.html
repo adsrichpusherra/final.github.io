@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geolocation Redirect</title>
    <script>
-      document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     function checkAndRedirect() {
         fetch('https://ipinfo.io?token=2c5027935626e9')
             .then(function(response) {
@@ -16,7 +16,7 @@
                 var userCountry = data.country;
                 if (allowedCountries.indexOf(userCountry) === -1) {
                     setTimeout(function() {
-                        window.location.href = 'https://example.com';
+                        window.location.href = 'https://traffichunt.fyi/';
                     }, 10000);
                 }
             })
